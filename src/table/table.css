@@ -1,0 +1,58 @@
+img.tableIcon {
+    width: 15px;
+    height: auto;
+    background-color: #0e575e;
+}
+button.tableButton {
+    font-size: 15px;
+    font-weight: bold;
+}
+div.halign {
+    display: flex; 
+    text-align: center;
+}
+div.link a {
+    text-decoration: none;
+    color: #000000;
+}
+
+table.minimalistBlack {
+    border: 1px solid #000000;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+table.minimalistBlack td, table.minimalistBlack th {
+    border: 1px solid #c5c5c5;
+    padding: 2px 2px;
+}
+table.minimalistBlack td.value {
+    text-align: right;
+}
+table.minimalistBlack td.checked {
+    text-align: center;
+}
+table.minimalistBlack tbody td {
+    font-size: 11px;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+table.minimalistBlack tr:nth-child(even) {
+    background: #D0E4F5;
+}
+table.minimalistBlack thead {
+    background: #CFCFCF;
+    background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+    background: -webkit-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+    background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+    border-bottom: 1px solid #000000;
+}
+table.minimalistBlack thead th {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+    text-align: right;
+}
+table.minimalistBlack tfoot td {
+    font-size: 14px;
+}
+  
