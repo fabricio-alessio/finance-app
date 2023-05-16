@@ -20,7 +20,7 @@ export default function ModalExtractMyAccount({ onFinish }) {
       if (codes.length == 0) {
         console.log("Finish indicators extraction");
         setPosition(100);
-        onFinish();
+        onFinish(true);
         return;
       }
       var code = codes[0];
@@ -42,7 +42,7 @@ export default function ModalExtractMyAccount({ onFinish }) {
     }  
     
     function close() {
-      onFinish();
+      onFinish(false);
     }
   
     return (

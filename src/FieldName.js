@@ -45,7 +45,7 @@ mapFields.set(AVERAGE_PRICE, "avgPrice");
 mapFields.set(AVERAGE_PRICE_PERCENT, "percAvgPrice");
 mapFields.set(VALORIZATION_30_DAYS, "val30Days");
 mapFields.set(VALORIZATION_5_DAYS, "val5Days");
-mapFields.set(TOTAL_PERCENT, "val5Days");
+mapFields.set(TOTAL_PERCENT, "percTotal");
 mapFields.set(FILTERED, "filtered");
 
 export function fieldAsText(fieldName) {

@@ -55,18 +55,28 @@ export default function App() {
     }
   }
   
-  function handleExtractAllTickersFinish() {
-    console.log("Receive all tickers finish");
+  function handleExtractAllTickersFinish(refresh) {
+    console.log("Receive all tickers finish. Refresh " + refresh);
     setShowModalExtractAllTickers(false);
+    if (refresh) {
+      Client.loadReport((loadedTickers) => {
+        setTickers(loadedTickers.tickers.slice());
+      });
+    }
   }
   
-  function handleExtractMyAccountFinish() {
-    console.log("Receive my account finish");
+  function handleExtractMyAccountFinish(refresh) {
+    console.log("Receive my account finish. Refresh " + refresh);
     setShowModalExtractMyAccount(false);
+    if (refresh) {
+      Client.loadReport((loadedTickers) => {
+        setTickers(loadedTickers.tickers.slice());
+      });
+    }
   }
   
   function handleEditEvaluationsFinish(refresh) {
-    console.log("Receive edit evaluations finish");
+    console.log("Receive edit evaluations finish. Refresh " + refresh);
     setEditEvaluations(false);
     if (refresh) {
       Client.loadReport((loadedTickers) => {
@@ -76,7 +86,7 @@ export default function App() {
   }
   
   function handleEditConditionFinish(refresh) {
-    console.log("Receive edit condition finish");
+    console.log("Receive edit condition finish. Refresh " + refresh);
     setEditCondition(false);
     if (refresh) {
       Client.loadReport((loadedTickers) => {

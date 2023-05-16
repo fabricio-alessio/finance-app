@@ -11,12 +11,12 @@ export default function ModalExtractMyAccount({ onFinish }) {
     function startExtraction() {
       //console.log(bearer.current.value);
       Client.extractPositions(bearer.current.value, () => {
-        onFinish();
+        onFinish(true);
       });
     }
 
     function close() {
-      onFinish();
+      onFinish(false);
     }
   
     return (
