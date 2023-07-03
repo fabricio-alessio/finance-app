@@ -77,6 +77,8 @@ function TicketTable({ tickers, ordering, onMenuClick }) {
         <TickerThMenu label="Val30D" field={FieldName.VALORIZATION_30_DAYS} onMenuClick={onMenuClick} showCondition={isConditionField(FieldName.VALORIZATION_30_DAYS)} />
         <TickerThMenu label="Val5D" field={FieldName.VALORIZATION_5_DAYS} onMenuClick={onMenuClick} showCondition={isConditionField(FieldName.VALORIZATION_5_DAYS)} />
         <TickerThMenu label="Roic" field={FieldName.ROIC} onMenuClick={onMenuClick} showCondition={isConditionField(FieldName.ROIC)} />
+        <TickerThMenu label="P/L" field={FieldName.PL} onMenuClick={onMenuClick} showCondition={isConditionField(FieldName.PL)} />
+        <TickerThMenu label="P/VP" field={FieldName.PVP} onMenuClick={onMenuClick} showCondition={isConditionField(FieldName.PVP)} />
         <TickerThMenu label="%Tot" field={FieldName.TOTAL_PERCENT} onMenuClick={onMenuClick} showCondition={isConditionField(FieldName.TOTAL_PERCENT)} />
         <TickerThMenu label="F" field={FieldName.FILTERED} onMenuClick={onMenuClick} showCondition={isConditionField(FieldName.FILTERED)} />
       </tr>
@@ -193,6 +195,8 @@ function TicketTable({ tickers, ordering, onMenuClick }) {
         <TdNumber value={ticker.val30Days}/>
         <TdNumber value={ticker.val5Days}/>
         <TdNumber value={ticker.roic}/>
+        <TdNumber value={ticker.pl}/>
+        <TdNumber value={ticker.pvp}/>
         <TdNumber value={ticker.percTotal}/>
         <TdChecked value={ticker.filtered} />
       </tr>

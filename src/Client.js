@@ -1,6 +1,7 @@
 function loadReport(cb) {
     const requestOptions = {
-        accept: 'application/json'
+        accept: 'application/json',
+        headers: { 'userId': '1' }
     };
     return fetch(`/api/v1/report`, requestOptions)
         .then(checkStatus)
@@ -31,7 +32,7 @@ function getAllIndicatorCodes(cb) {
 function extractPositions(bearer, cb) {
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'userId': '1' },
         body: JSON.stringify({ bearer: bearer })
     };
     return fetch(`/api/v1/positions`, requestOptions)
@@ -52,7 +53,8 @@ function checkStatus(response) {
 
 function getCompanyEvaluations(code, cb) {
     const requestOptions = {
-        accept: 'application/json'
+        accept: 'application/json',
+        headers: { 'userId': '1' }
     };
     return fetch(`/api/v1/companies/${code}/evaluations`, requestOptions)
         .then(checkStatus)
@@ -66,7 +68,7 @@ function getCompanyEvaluations(code, cb) {
 function saveCompanyEvaluations(code, evaluations, cb) {
     const requestOptions = {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'userId': '1'  },
         body: JSON.stringify(evaluations)
     };
     return fetch(`/api/v1/companies/${code}/evaluations`, requestOptions)
