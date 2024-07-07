@@ -11,6 +11,7 @@ import { fieldAsText } from './FieldName';
 
 export default function App() {
   const [ordering, setOrdering] = useState({type: "NONE", field: "code"});
+  const [filtering, setFiltering] = useState(false);
   const [tickers, setTickers] = useState([]);
   const [showModalExtractAllTickers, setShowModalExtractAllTickers] = useState(false);
   const [showModalExtractMyAccount, setShowModalExtractMyAccount] = useState(false);
@@ -29,6 +30,9 @@ export default function App() {
       var fieldText = fieldAsText(field);
       console.log("run ordering command " + command + " fieldText " + fieldText);
       setOrdering({type: "DESC", field: fieldText});
+    } else if (command.substring(0, Command.FILTER.length) == Command.FILTER) {  
+      console.log("Filtering: " + filtering);    
+      setFiltering(!filtering);
     } else if (command == Command.LOAD_TICKETS) {
       Client.loadReport((loadedTickers) => {
         setTickers(loadedTickers.tickers.slice());
@@ -110,7 +114,7 @@ export default function App() {
   return (
     <>
       <Menu onMenuClick={handleMenuClick} />
-      <TicketTable tickers={tickers} ordering={ordering} onMenuClick={handleMenuClick} />
+      <TicketTable tickers={tickers} ordering={ordering} filtering={filtering} onMenuClick={handleMenuClick} />
       {modal}
     </>
   )

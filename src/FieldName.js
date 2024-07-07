@@ -67,6 +67,14 @@ const conditionFields = [
     DIVIDEND_NEXT_TREE_YEARS
 ];
 
+const filterFields = [
+    FILTERED
+];
+
 export function isConditionField(fieldName) {
     return conditionFields.includes(fieldName);
+}
+
+export function isFilterField(fieldName) {
+    return filterFields.includes(fieldName);
 }

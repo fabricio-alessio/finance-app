@@ -4,19 +4,22 @@ import { orderByField } from './tickerOrderer.js';
 import Link from '../Link.js';
 import FieldName from '../FieldName';
 import { isConditionField } from '../FieldName';
+import { isFilterField } from '../FieldName';
 
-function TicketTable({ tickers, ordering, onMenuClick }) {
+function TicketTable({ tickers, ordering, filtering, onMenuClick }) {
     const rows = [];
   
     const orderedTickers = orderByField(tickers, ordering);
     
     orderedTickers.forEach((ticker) => {
-      rows.push(
-        <TickerRow
-          ticker={ticker}
-          key={ticker.code}
-          onMenuClick={onMenuClick} />
-      );
+      if (ticker.filtered || !filtering) {
+        rows.push(
+          <TickerRow
+            ticker={ticker}
+            key={ticker.code}
+            onMenuClick={onMenuClick} />
+        );
+      }
     });
   
     return (
@@ -42,6 +45,10 @@ function TicketTable({ tickers, ordering, onMenuClick }) {
       var menuCondition = <Link label="Condition" onLinkClick={event => handleAnchorClick(event, Command.EDIT_CONDITION)} />
     }
 
+    if (isFilterField(field)) {
+      var menuFilter = <Link label="Filter" onLinkClick={event => handleAnchorClick(event, Command.FILTER)} />
+    }
+
     return (
       <th>
           <li className="dropdown">
@@ -50,6 +57,7 @@ function TicketTable({ tickers, ordering, onMenuClick }) {
               <Link label="Sort A &#8594; Z" onLinkClick={event => handleAnchorClick(event, Command.ORDER_ASC)} />
               <Link label="Sort Z &#8594; A" onLinkClick={event => handleAnchorClick(event, Command.ORDER_DESC)} />
               {menuCondition}
+              {menuFilter}
             </div>
           </li>
       </th>
@@ -103,6 +111,7 @@ function TicketTable({ tickers, ordering, onMenuClick }) {
     let urlStatusInvest = "https://statusinvest.com.br/acoes/" + value;
     let urlInvestor10 = "https://investidor10.com.br/acoes/" + value + "/";
     let urlFundamentus = "https://www.fundamentus.com.br/detalhes.php?papel=" + value;
+    let urlPlayInvestDiv = "https://playinvest.com.br/dividendos/" + value;
     return (
       <td>
         <li className="dropdown">
@@ -111,6 +120,7 @@ function TicketTable({ tickers, ordering, onMenuClick }) {
             <a href={urlStatusInvest} target="_blank" rel="noopener noreferrer">Status Invest</a>
             <a href={urlInvestor10} target="_blank" rel="noopener noreferrer">Investidor 10</a>
             <a href={urlFundamentus} target="_blank" rel="noopener noreferrer">Fundamentus</a>
+            <a href={urlPlayInvestDiv} target="_blank" rel="noopener noreferrer">Play Invest - Dividendos</a>
             <Link label="New feature" onLinkClick={event => handleAnchorClick(event, Command.ORDER_ASC)} />
           </div>
         </li>

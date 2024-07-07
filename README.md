@@ -2,9 +2,31 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# node and npm on Ubuntu
+
+https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-22-04
+
+You’ll need to have Node 14.0.0 or later version on your local development machine
+
+Instal nvm (node version manager)
+`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash`
+`source ~/.bashrc`
+
+Check versions
+`nvm list-remote`
+
+Install a specific version
+`nvm install v16.14.0`
+
+Check the node version installed
+`node -v`
+
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
 
 ### `npm start`
 
